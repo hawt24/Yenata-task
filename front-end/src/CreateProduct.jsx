@@ -24,7 +24,7 @@ const CreateProduct = () => {
       productDescription,
     };
 
-    axios.post("http://localhost:3001/product", newProduct)
+    axios.post("https://mern-product-mangmenent.onrender.com/product", newProduct)
       .then(() => {
         setShowSuccessMessage(true);
         setProductName('');
