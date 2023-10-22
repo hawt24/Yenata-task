@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import axios from "axios";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("https://mern-product-mangmenent.onrender.com/product");
+      const response = await axios.get("http://localhost:3001/product");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -15,7 +16,7 @@ const Product = () => {
 
   const deleteProduct = async (productId) => {
     try {
-      await axios.delete(`https://mern-product-mangmenent.onrender.com/product/${productId}`);
+      await axios.delete(`http://localhost:3001/product/${productId}`);
       fetchProducts();
     } catch (error) {
       console.error("Error deleting product:", error);
