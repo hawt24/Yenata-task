@@ -11,7 +11,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/crud', {
 
 });
 
-// Import and use the product routes
 app.use('/product', productRoutes);
 
 app.listen(3001, () => {

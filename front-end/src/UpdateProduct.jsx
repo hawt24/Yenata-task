@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UpdateProduct = () => {
-  const { id } = useParams(); // Get the product ID from the URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     productName: '',
@@ -12,30 +12,26 @@ const UpdateProduct = () => {
     productDescription: '',
   });
 
-  // Function to fetch product data by ID
+
   const fetchProductById = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/product/${id}`); // Replace with your API endpoint
+      const response = await axios.get(`http://localhost:3001/product/${id}`);
       setProduct(response.data);
     } catch (error) {
       console.error('Error fetching product:', error);
     }
   };
 
-  // Fetch product data if ID is present
   useEffect(() => {
     if (id) {
       fetchProductById();
     }
   }, [id]);
 
-  // Function to handle form submissions for updating the product data
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     try {
-      // Send a PUT request to update the product data
-      await axios.put(`http://localhost:3001/product/${id}`, product); // Replace with your API endpoint
-      // Redirect or display a success message after updating
+      await axios.put(`http://localhost:3001/product/${id}`, product); 
       navigate('/');
     } catch (error) {
       console.error('Error updating product:', error);
