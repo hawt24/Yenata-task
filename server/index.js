@@ -4,7 +4,6 @@ const cors = require('cors');
 const productRoutes = require('./routes/product');
 const dotenv = require('dotenv').config();
 
-console.log(dotenv.parsed)
 
 const app = express();
 app.use(cors());
