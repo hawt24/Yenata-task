@@ -15,7 +15,7 @@ const UpdateProduct = () => {
 
   const fetchProductById = async () => {
     try {
-      const response = await axios.get(`https://mern-product-mangmenent.onrender.com/product/${id}`);
+      const response = await axios.get(`http://localhost:3001/product/${id}`);
       setProduct(response.data);
     } catch (error) {
       console.error('Error fetching product:', error);
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://mern-product-mangmenent.onrender.com/product/${id}`, product); 
+      await axios.put(`http://localhost:3001/product/${id}`, product); 
       navigate('/');
     } catch (error) {
       console.error('Error updating product:', error);
